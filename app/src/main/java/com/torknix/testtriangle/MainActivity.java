@@ -92,25 +92,29 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.button_test)
     public void onViewClicked() {
-
-        if (editTextSide1.getText().toString().length() < 1 && editTextSide2.getText().toString().length() < 1 && editTextSide3.getText().toString().length() < 1) {
+        if (editTextSide1.getText().length() < 1 && editTextSide2.getText().length() < 1 && editTextSide3.getText().length() < 1) {
             editTextSide1.setError("You must introduce an integer value");
             editTextSide2.setError("You must introduce an integer value");
             editTextSide3.setError("You must introduce an integer value");
 
-
+        } else if (editTextSide1.getText().length() < 1) {
+            editTextSide1.setError("You must introduce an integer value");
+        } else if (editTextSide2.getText().length() < 1) {
+            editTextSide2.setError("You must introduce an integer value");
+        } else if (editTextSide3.getText().length() < 1) {
+            editTextSide3.setError("You must introduce an integer value");
         } else {
 
             side_1 = Integer.parseInt(editTextSide1.getText().toString());
             side_2 = Integer.parseInt(editTextSide2.getText().toString());
             side_3 = Integer.parseInt(editTextSide3.getText().toString());
 
-            if (editTextSide1.getText().toString().equals("") || side_1 == 0) {
-                editTextSide1.setError("You must introduce an integer value > 0");
-            } else if (editTextSide2.getText().toString().equals("") || side_2 == 0) {
-                editTextSide2.setError("You must introduce an integer value > 0");
-            } else if (editTextSide3.getText().toString().equals("") || side_3 == 0) {
-                editTextSide3.setError("You must introduce an integer value > 0");
+            if (side_1 == 0) {
+                editTextSide1.setError("The value must be > 0");
+            } else if (side_2 == 0) {
+                editTextSide2.setError("The value must be > 0");
+            } else if (side_3 == 0) {
+                editTextSide3.setError("The value must be > 0");
             } else {
                 editTextSide1.setError(null);
                 editTextSide2.setError(null);
